@@ -1929,6 +1929,16 @@ __webpack_require__.r(__webpack_exports__);
   name: 'App',
   components: {
     WorkComp: _components_WorkComp_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {
+    this.getPosts();
+  },
+  methods: {
+    getPosts: function getPosts() {
+      axios.get('http://localhost:8000/api/posts').then(function (res) {
+        console.log(res.data);
+      });
+    }
   }
 });
 
@@ -1953,7 +1963,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("Work in progress")])]);
+  return _c("div", [_c("h1", [_vm._v("Work in progress da componente")])]);
 }];
 render._withStripped = true;
 
@@ -1974,9 +1984,13 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("WorkComp")], 1);
+  return _c("div", [_c("WorkComp"), _vm._v(" "), _vm._m(0)], 1);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("ul", [_c("li")])]);
+}];
 render._withStripped = true;
 
 
@@ -49897,8 +49911,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\aless\OneDrive\Desktop\Boolean\laravel\laravel-many-to-many\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\aless\OneDrive\Desktop\Boolean\laravel\laravel-many-to-many\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\aless\OneDrive\Desktop\Boolean\laravel\laravel-api\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\aless\OneDrive\Desktop\Boolean\laravel\laravel-api\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

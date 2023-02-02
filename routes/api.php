@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//localhost:8000/api/posts  => prefisso che genera il file
+//namespace => path che porta al file
+
+Route::namespace('Api')->prefix('posts')->group(function(){
+    Route::get('/', 'PostController@index');
+});

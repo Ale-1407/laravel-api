@@ -4,7 +4,7 @@
         <!-- dati dei post -->
         <div>
             <ul>
-                <li></li>
+                <li v-for="elem in posts" :key="elem.id">{{ elem.title }}</li>
             </ul>
         </div>
     </div>
@@ -20,6 +20,11 @@ export default {
     components: {
         WorkComp
     },
+    data(){
+        return{
+            posts: []
+        }
+    },
     mounted(){
         this.getPosts();
     },
@@ -28,6 +33,7 @@ export default {
             axios.get('http://localhost:8000/api/posts')
             .then( res => {
                 console.log(res.data);
+                this.posts = res.data
             })
         }
     }

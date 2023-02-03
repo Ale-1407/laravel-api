@@ -2,7 +2,7 @@
     <div>
         <WorkComp />
         <!-- dati dei post -->
-        <PostList :posts="posts" />
+        <PostList :posts="posts" :isLoading="isLoading" />
     </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
     },
     data(){
         return{
-            posts: []
+            posts: [],
+            isLoading: false
         }
     },
     mounted(){
@@ -27,10 +28,15 @@ export default {
     },
     methods: {
         getPosts(){
+            this.isLoading = true
             axios.get('http://localhost:8000/api/posts')
             .then( res => {
                 console.log(res.data);
                 this.posts = res.data
+            }).catch(err => {
+                console.log(err)
+            }).then( () => {
+                this.isLoading = false
             })
         }
     }

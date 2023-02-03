@@ -2,23 +2,20 @@
     <div>
         <WorkComp />
         <!-- dati dei post -->
-        <div>
-            <ul>
-                <li v-for="elem in posts" :key="elem.id">{{ elem.title }}</li>
-            </ul>
-        </div>
+        <PostList :posts="posts" />
     </div>
 </template>
 
 
 <script>
 import WorkComp from '../components/WorkComp.vue';
-
+import PostList from '../components/posts/PostList.vue';
 
 export default {
     name: 'App',
     components: {
-        WorkComp
+        WorkComp,
+        PostList
     },
     data(){
         return{
